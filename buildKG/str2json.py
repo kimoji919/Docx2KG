@@ -48,13 +48,14 @@ def indexstr2json(raw_string):
     edges_array=[]
     pages_array=[]
     pages_part_array=[]
+    chapter_name_array=[]
     # 尝试解析为JSON
     try:
         json_data = json.loads(cleaned_string)
         slices=json_data["slices"]
         for slice in slices:
             source=slice["chapter_name"]
-            nodes_array.append(source)
+            chapter_name_array.append(source)
             # for entrie in slice["entries"]:
             #     if entrie != "总结" and entrie != "小结":
             #         nodes_array.append(entrie)
@@ -70,4 +71,4 @@ def indexstr2json(raw_string):
         nodes_array=[]
         edges_array=[]
         pages_array=[]
-    return nodes_array,edges_array,pages_array,pages_part_array
+    return nodes_array,edges_array,pages_array,pages_part_array,chapter_name_array
